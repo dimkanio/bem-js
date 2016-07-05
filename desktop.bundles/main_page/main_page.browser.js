@@ -5799,7 +5799,7 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
                 zoom = this.params.zoom || 16;
 
             this._map = new ymaps.Map(this.domElem[0], {
-                center: center,
+                center: center, 
                 zoom: zoom,
                 controls: ['zoomControl', 'trafficControl'],
                 behaviors: ['drag', 'dblClickZoom', 'scrollZoom']

@@ -97,6 +97,8 @@ html {
 /* ../../desktop.blocks/comment/comment.css:begin */
 .comment{
 
+	border-top: 1px solid red;
+
 	
 }
 /* ../../desktop.blocks/comment/comment.css:end */
