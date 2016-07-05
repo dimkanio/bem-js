@@ -1,0 +1,8 @@
+block('news').js()(true);
+
+
+
+
+
+
+

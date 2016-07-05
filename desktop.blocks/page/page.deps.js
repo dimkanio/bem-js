@@ -1,0 +1,3 @@
+({
+    shouldDeps: ['news', 'map', 'comment']
+})

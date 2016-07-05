@@ -1,0 +1,28 @@
+.layout
+{
+    position: relative;
+    min-height: 30px;
+
+}
+ 
+.layout__left
+{
+    /*padding-right: 300px;*/
+    margin-right: 300px;
+
+}
+ 
+.layout__right
+{
+
+	width: 300px;
+    float: right;
+	
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+ 
+    
+
+}

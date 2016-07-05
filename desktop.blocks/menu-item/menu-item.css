@@ -1,0 +1,23 @@
+.menu-item{
+	float: left;
+	font-weight: bold;
+}
+
+.menu-item_theme_islands.menu-item_hovered {
+	
+	background-color: red;
+	cursor: pointer;
+	color: white;
+}
+/*
+menu-item_theme_islands.menu-item_type_link_hovered {
+	
+	background-color: red;
+	cursor: pointer;
+	color: white;
+}
+
+.menu-item_theme_islands.menu-item_type_link .link {
+	color: black;
+}
+*/

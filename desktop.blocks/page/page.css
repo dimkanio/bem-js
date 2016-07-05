@@ -1,0 +1,43 @@
+html {
+   height: 115%;
+}
+
+.page
+{
+    font: 13px Helvetica, Arial, sans-serif;
+    background: gray;
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+
+}
+
+.page__inner
+{
+
+  min-width: 600px;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0;
+  height: 105%;
+  position: relative;
+
+
+}
+
+.page__wrapper
+{
+  background-color: white;
+  min-width: 600px;
+  max-width: 1600px;
+  min-height: 600px;
+  margin: 0 auto;
+  padding: 0;
+
+  width: 95%;
+  height: 100%;
+  position: relative;
+  
+
+}
+ 

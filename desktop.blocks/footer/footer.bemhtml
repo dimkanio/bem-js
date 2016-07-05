@@ -1,0 +1,9 @@
+block('footer')(
+    content()(function() {
+        return {
+            elem: 'copyrught',
+            content: applyNext()
+        };
+    })
+);
+

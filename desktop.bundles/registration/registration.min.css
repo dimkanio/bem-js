@@ -1,0 +1,537 @@
+/* ../../desktop.blocks/page/page.css:begin */
+.page
+{
+    font: 13px Helvetica, Arial, sans-serif;
+    background: gray;
+    margin: 0 auto;
+    padding: 0;
+
+
+}
+
+.page__inner
+{
+
+  min-width: 600px;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0;
+
+
+}
+
+.page__wrapper
+{
+  background-color: white;
+  min-width: 600px;
+  max-width: 1600px;
+  min-height: 600px;
+  margin: 0 auto;
+  padding: 0;
+
+  width: 90%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+
+
+}
+/* ../../desktop.blocks/page/page.css:end */
+/* ../../desktop.blocks/news/news.css:begin */
+.news{
+
+    min-height: 350px;
+    margin-top: 0;
+	margin-right: 1%;
+	margin-left: 2%;
+
+	position: relative;
+    overflow:  hidden;
+}
+
+.news__content{
+	font:  12px Helvetica, Arial, sans-serif; 
+}
+
+.news__header{
+	font:  13px sans-serif, Helvetica, Arial; 
+	font-weight: bold;
+}
+
+.news__link {
+    padding-top: 10px;
+}
+
+.news__link .title {
+    padding: 1px;
+}
+
+.news__link a {
+    color: black;
+    text-decoration: none;
+}
+
+.news__link a:hover {
+    color: red;
+}
+
+.news__link span {
+    font:  10px Helvetica, Arial, sans-serif;
+    float: right;
+    padding-top: 5px;
+}
+/* ../../desktop.blocks/news/news.css:end */
+/* ../../desktop.blocks/head/head.css:begin */
+.head
+{
+	
+	border-bottom: 1px solid red;
+	
+	
+}
+/* ../../desktop.blocks/head/head.css:end */
+/* ../../desktop.blocks/layout/layout.css:begin */
+.layout
+{
+    position: relative;
+    min-height: 30px;
+
+}
+ 
+.layout__left
+{
+    /*padding-right: 300px;*/
+    margin-right: 300px;
+
+}
+ 
+.layout__right
+{
+
+	width: 300px;
+    float: right;
+	
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+ 
+    
+
+}
+/* ../../desktop.blocks/layout/layout.css:end */
+/* ../../desktop.blocks/logo/logo.css:begin */
+.logo
+{
+    width: 70px;
+    height: 58px;
+    background: url(http://localhost:8080/desktop.blocks/logo/logo.png) no-repeat;
+}
+/* ../../desktop.blocks/logo/logo.css:end */
+/* ../../libs/bem-components/common.blocks/image/image.css:begin */
+.image {
+  border: 0;
+}
+/* ../../libs/bem-components/common.blocks/image/image.css:end */
+/* ../../desktop.blocks/image/image.css:begin */
+.image{
+	float: left;
+	min-height: 40px;
+}
+/* ../../desktop.blocks/image/image.css:end */
+/* ../../desktop.blocks/search/search.css:begin */
+.search{
+
+	
+	
+}
+/* ../../desktop.blocks/search/search.css:end */
+/* ../../libs/bem-components/common.blocks/input/input.css:begin */
+.input {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+/* ../../libs/bem-components/common.blocks/input/input.css:end */
+/* ../../desktop.blocks/input/input.css:begin */
+.input
+{
+	position: relative;
+    top: 6px;
+}
+
+.input__control
+{
+	width: 230px;
+	border-style: solid;
+	border-top-color: red;
+	border-bottom: none;
+	border-right: none;
+	border-left-color: red;
+	border-left-width: 1px; 
+	border-top-width: 1px;
+	font-family: sans-serif, Arial;
+}
+/* ../../desktop.blocks/input/input.css:end */
+/* ../../libs/bem-components/common.blocks/button/button.css:begin */
+.button {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+/* ../../libs/bem-components/common.blocks/button/button.css:end */
+/* ../../desktop.blocks/button/button.css:begin */
+.button
+{
+	position: absolute;
+    top: 6px;
+    right: 5px;
+    color: black;
+    font-family: sans-serif, Arial;
+    font-weight: bold;
+    background-color: white;
+    border-bottom: none;
+    border-top-color: red;
+    border-top-width: 1px;
+    border-left-color: red;
+    border-left-width: 1px;
+    border-right-color: red;
+    border-right-width: 1px;
+
+}
+/* ../../desktop.blocks/button/button.css:end */
+/* ../../libs/bem-components/common.blocks/menu/menu.css:begin */
+.menu {
+  overflow-y: auto;
+}
+/* ../../libs/bem-components/common.blocks/menu/menu.css:end */
+/* ../../desktop.blocks/menu/menu.css:begin */
+.menu{
+	border-bottom: 1px solid red;
+	margin-bottom: 10px;
+	
+	
+}
+/* ../../desktop.blocks/menu/menu.css:end */
+/* ../../libs/bem-components/design/common.blocks/menu/_theme/menu_theme_islands.css:begin */
+.menu_theme_islands {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: 0;
+  background: #fff;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+/* Using pseudo-elements intead of paddings because of Firefox bug with bottom padding (#1158):
+     * https://bugzilla.mozilla.org/show_bug.cgi?id=748518 */
+}
+.menu_theme_islands:before,
+.menu_theme_islands:after {
+  display: block;
+  content: '';
+}
+.menu_theme_islands.menu_size_s {
+  font-size: 13px;
+  line-height: 24px;
+}
+.menu_theme_islands.menu_size_s:before,
+.menu_theme_islands.menu_size_s:after {
+  height: 3px;
+}
+.menu_theme_islands.menu_size_s .menu-item + .menu__group {
+  margin-top: 3px;
+}
+.menu_theme_islands.menu_size_s .menu__group {
+  padding: 3px 0;
+}
+.menu_theme_islands.menu_size_s .menu__group-title {
+  padding: 0 10px;
+}
+.menu_theme_islands.menu_size_m {
+  font-size: 13px;
+  line-height: 24px;
+}
+.menu_theme_islands.menu_size_m:before,
+.menu_theme_islands.menu_size_m:after {
+  height: 4px;
+}
+.menu_theme_islands.menu_size_m .menu-item + .menu__group {
+  margin-top: 4px;
+}
+.menu_theme_islands.menu_size_m .menu__group {
+  padding: 4px 0;
+}
+.menu_theme_islands.menu_size_m .menu__group-title {
+  padding: 0 13px;
+}
+.menu_theme_islands.menu_size_l {
+  font-size: 15px;
+  line-height: 28px;
+}
+.menu_theme_islands.menu_size_l:before,
+.menu_theme_islands.menu_size_l:after {
+  height: 5px;
+}
+.menu_theme_islands.menu_size_l .menu-item + .menu__group {
+  margin-top: 5px;
+}
+.menu_theme_islands.menu_size_l .menu__group {
+  padding: 5px 0;
+}
+.menu_theme_islands.menu_size_l .menu__group-title {
+  padding: 0 15px;
+}
+.menu_theme_islands.menu_size_xl {
+  font-size: 15px;
+  line-height: 32px;
+}
+.menu_theme_islands.menu_size_xl:before,
+.menu_theme_islands.menu_size_xl:after {
+  height: 6px;
+}
+.menu_theme_islands.menu_size_xl .menu-item + .menu__group {
+  margin-top: 6px;
+}
+.menu_theme_islands.menu_size_xl .menu__group {
+  padding: 6px 0;
+}
+.menu_theme_islands.menu_size_xl .menu__group-title {
+  padding: 0 20px;
+}
+.menu_theme_islands .menu__group {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-width: 1px 0;
+}
+.menu_theme_islands .menu__group-title {
+  color: #999;
+}
+.menu_theme_islands .menu__group + .menu__group {
+  border-top: 0;
+}
+.menu_theme_islands .menu__group:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.menu_theme_islands .menu__group:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+/* ../../libs/bem-components/design/common.blocks/menu/_theme/menu_theme_islands.css:end */
+/* ../../desktop.blocks/info/info.css:begin */
+.info
+{
+	margin-top: 0;
+	margin-right: 1%;
+	margin-left: 2%;
+
+	position: relative;
+    overflow: auto;
+
+}
+ 
+.info__left
+{
+  float: left;
+  width: 60%;
+  border-right: 1px solid red;
+  min-height: 600px;
+
+
+}
+ 
+.info__right
+{
+	float: left;
+	margin-left: 2%;
+    width: 39%;
+	min-height: 300px;
+	position: relative;
+
+}
+/* ../../desktop.blocks/info/info.css:end */
+/* ../../desktop.blocks/footer/footer.css:begin */
+.footer{
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+
+  border-top: 1px solid red;
+  
+}
+/* ../../desktop.blocks/footer/footer.css:end */
+/* ../../desktop.blocks/copyright/copyright.css:begin */
+.copyright{
+	font-family: sans-serif;
+	margin-left: 10px;
+
+
+}
+/* ../../desktop.blocks/copyright/copyright.css:end */
+/* ../../libs/bem-components/design/common.blocks/link/_theme/link_theme_islands.css:begin */
+.link_theme_islands {
+  color: #44b;
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease-out;
+  transition: color 0.15s ease-out;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+.link_theme_islands.link_view_minor {
+  color: #669;
+}
+.link_theme_islands.link_view_external {
+  color: #070;
+}
+.link_theme_islands:hover {
+  color: #e00;
+}
+.link_theme_islands.link_size_s {
+  font-size: 13px;
+}
+.link_theme_islands.link_size_m {
+  font-size: 13px;
+}
+.link_theme_islands.link_size_l {
+  font-size: 15px;
+}
+.link_theme_islands.link_size_xl {
+  font-size: 18px;
+}
+.link_theme_islands.link_disabled {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* ../../libs/bem-components/design/common.blocks/link/_theme/link_theme_islands.css:end */
+/* ../../libs/bem-components/design/common.blocks/menu-item/_theme/menu-item_theme_islands.css:begin */
+.menu-item_theme_islands {
+  position: relative;
+  white-space: nowrap;
+}
+.menu-item_theme_islands.menu-item_disabled {
+  opacity: 0.3;
+}
+.menu-item_theme_islands .link_disabled {
+  cursor: text;
+}
+.menu-item_theme_islands.menu-item_checked {
+  background: 0 50% no-repeat url("../../libs/bem-components/design/common.blocks/theme/_islands/tip.svg");
+}
+.menu-item_theme_islands.menu-item_hovered {
+  cursor: pointer;
+  background-color: #ffeba0;
+}
+.menu-item_theme_islands.menu-item_type_link .link {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+.menu-item_theme_islands.menu-item_type_link .link:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+.menu_size_s .menu-item_theme_islands {
+  padding: 0 10px;
+  background-size: 14px 14px;
+  background-position: 10px 50%;
+}
+.menu_size_s .menu__group + .menu-item_theme_islands {
+  margin-top: 3px;
+}
+.menu_size_s[class*='menu_mode'] .menu-item_theme_islands,
+.menu_size_s .menu__group-title ~ .menu-item_theme_islands {
+  padding: 0 30px;
+}
+.menu_size_m .menu-item_theme_islands {
+  padding: 0 13px;
+  background-size: 14px 14px;
+  background-position: 13px 50%;
+}
+.menu_size_m .menu__group + .menu-item_theme_islands {
+  margin-top: 4px;
+}
+.menu_size_m[class*='menu_mode'] .menu-item_theme_islands,
+.menu_size_m .menu__group-title ~ .menu-item_theme_islands {
+  padding: 0 30px;
+}
+.menu_size_l .menu-item_theme_islands {
+  padding: 0 15px;
+  background-size: 15px 15px;
+  background-position: 15px 50%;
+}
+.menu_size_l .menu__group + .menu-item_theme_islands {
+  margin-top: 5px;
+}
+.menu_size_l[class*='menu_mode'] .menu-item_theme_islands,
+.menu_size_l .menu__group-title ~ .menu-item_theme_islands {
+  padding: 0 34px;
+}
+.menu_size_xl .menu-item_theme_islands {
+  padding: 0 20px;
+  background-size: 15px 15px;
+  background-position: 20px 50%;
+}
+.menu_size_xl .menu__group + .menu-item_theme_islands {
+  margin-top: 6px;
+}
+.menu_size_xl[class*='menu_mode'] .menu-item_theme_islands,
+.menu_size_xl .menu__group-title ~ .menu-item_theme_islands {
+  padding: 0 40px;
+}
+/* ../../libs/bem-components/design/common.blocks/menu-item/_theme/menu-item_theme_islands.css:end */
+/* ../../libs/bem-components/common.blocks/link/link.css:begin */
+.link {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+/* ../../libs/bem-components/common.blocks/link/link.css:end */
+/* ../../desktop.blocks/link/link.css:begin */
+.link
+{
+	color: #666;
+    text-decoration: none;
+}
+
+.link__slogan
+{
+    font: 14px, sans-serif, verdana;
+    white-space: pre;
+    letter-spacing: 5px;
+    display: block;
+    margin-top: 5px;
+    min-height: 55px;
+}
+/* ../../desktop.blocks/link/link.css:end */
+/* ../../libs/bem-components/common.blocks/menu-item/menu-item.css:begin */
+.menu-item {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+/* ../../libs/bem-components/common.blocks/menu-item/menu-item.css:end */
+/* ../../desktop.blocks/menu-item/menu-item.css:begin */
+.menu-item{
+	float: left;
+	font-weight: bold;
+}
+
+.menu-item_theme_islands.menu-item_hovered {
+	
+	background-color: red;
+	cursor: pointer;
+	color: white;
+}
+/*
+menu-item_theme_islands.menu-item_type_link_hovered {
+	
+	background-color: red;
+	cursor: pointer;
+	color: white;
+}
+
+.menu-item_theme_islands.menu-item_type_link .link {
+	color: black;
+}
+*/
+/* ../../desktop.blocks/menu-item/menu-item.css:end */

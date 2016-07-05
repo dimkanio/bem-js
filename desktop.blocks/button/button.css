@@ -1,0 +1,21 @@
+.button
+{
+	position: relative;
+    top: 6px;
+    right: 5px;
+    color: black;
+    font-family: sans-serif, Arial;
+    font-weight: bold;
+    background-color: white;
+    border-bottom: none;
+    border-top-color: red;
+    border-top-width: 1px;
+    border-left-color: red;
+    border-left-width: 1px;
+    border-right-color: red;
+    border-right-width: 1px;
+
+}
+
+
+

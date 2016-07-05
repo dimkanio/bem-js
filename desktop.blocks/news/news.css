@@ -1,0 +1,57 @@
+.news{
+
+    min-height: 350px;
+    margin-top: 0;
+	margin-right: 1%;
+	margin-left: 2%;
+
+	position: relative;
+    overflow:  hidden;
+}
+
+.news__content{
+	font:  12px Helvetica, Arial, sans-serif; 
+}
+
+.news__header{
+	font:  13px sans-serif, Helvetica, Arial; 
+	font-weight: bold;
+}
+
+.news__link {
+    padding-top: 10px;
+}
+
+.news__link .title {
+    padding: 1px;
+}
+
+.news__link a {
+    color: black;
+    text-decoration: none;
+}
+
+.news__link a:hover {
+    color: red;
+}
+
+.news__link span {
+    font:  10px Helvetica, Arial, sans-serif;
+    float: right;
+    padding-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
