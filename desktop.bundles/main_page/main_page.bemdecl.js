@@ -130,7 +130,111 @@ exports.blocks = [
         "name": "input"
     },
     {
+        "name": "input",
+        "mods": [
+            {
+                "name": "theme",
+                "vals": [
+                    {
+                        "name": "islands"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "input",
+        "mods": [
+            {
+                "name": "size",
+                "vals": [
+                    {
+                        "name": "m"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "input",
+        "mods": [
+            {
+                "name": "type",
+                "vals": [
+                    {
+                        "name": "search"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "input",
+        "mods": [
+            {
+                "name": "has-clear",
+                "vals": [
+                    {
+                        "name": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "input",
+        "mods": [
+            {
+                "name": "focused",
+                "vals": [
+                    {
+                        "name": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "name": "button"
+    },
+    {
+        "name": "button",
+        "mods": [
+            {
+                "name": "theme",
+                "vals": [
+                    {
+                        "name": "islands"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "button",
+        "mods": [
+            {
+                "name": "size",
+                "vals": [
+                    {
+                        "name": "m"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "button",
+        "mods": [
+            {
+                "name": "type",
+                "vals": [
+                    {
+                        "name": "submit"
+                    }
+                ]
+            }
+        ]
     },
     {
         "name": "info"

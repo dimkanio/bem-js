@@ -1,5 +1,5 @@
 {
-  "author": "Dmitry Nekrasov",
+  "author": "",
   "name": "bem-project-stub",
   "version": "1.7.0",
   "repository": {
@@ -10,9 +10,7 @@
     "node": ">=0.12"
   },
   "dependencies": {
-    "bower": "^1.7.9",
-    "express": "^4.14.0",
-    "vow": "^0.4.12"
+    "bower": "^1.7.9"
   },
   "devDependencies": {
     "bem": "^0.10.2",

@@ -5570,6 +5570,73 @@ provide(
 });
 
 /* end: ../../libs/bem-core/common.blocks/idle/idle.js */
+/* begin: ../../libs/bem-components/common.blocks/input/_has-clear/input_has-clear.js */
+/**
+ * @module input
+ */
+
+modules.define('input', function(provide, Input) {
+
+/**
+ * @exports
+ * @class input
+ * @bem
+ */
+provide(Input.decl({ modName : 'has-clear', modVal : true }, /** @lends input.prototype */{
+    onSetMod : {
+        'js' : {
+            'inited' : function() {
+                this.__base.apply(this, arguments);
+
+                this
+                    .on('change', this._updateClear)
+                    ._updateClear();
+            }
+        }
+    },
+
+    _onClearClick : function() {
+        this
+            .setVal('', { source : 'clear' })
+            .setMod('focused');
+    },
+
+    _updateClear : function() {
+        this.toggleMod(this.elem('clear'), 'visible', true, !!this._val);
+    }
+}, /** @lends input */{
+    live : function() {
+        this.liveBindTo('clear', 'pointerclick', function() {
+            this._onClearClick();
+        });
+
+        return this.__base.apply(this, arguments);
+    }
+}));
+
+});
+
+/* end: ../../libs/bem-components/common.blocks/input/_has-clear/input_has-clear.js */
+/* begin: ../../libs/bem-components/desktop.blocks/input/_has-clear/input_has-clear.js */
+modules.define('input', function(provide, Input) {
+
+provide(Input.decl({ modName : 'has-clear', modVal : true }, {
+    _onBoxClick : function() {
+        this.hasMod(this.elem('clear'), 'visible') || this.setMod('focused');
+    }
+}, {
+    live : function() {
+        this.liveBindTo('box', 'pointerclick', function() {
+            this._onBoxClick();
+        });
+
+        return this.__base.apply(this, arguments);
+    }
+}));
+
+});
+
+/* end: ../../libs/bem-components/desktop.blocks/input/_has-clear/input_has-clear.js */
 /* begin: ../../libs/bem-components/common.blocks/button/button.js */
 /**
  * @module button

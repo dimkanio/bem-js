@@ -1,11 +1,15 @@
 /* ../../desktop.blocks/page/page.css:begin */
+html {
+   height: 115%;
+}
+
 .page
 {
     font: 13px Helvetica, Arial, sans-serif;
     background: gray;
     margin: 0 auto;
     padding: 0;
-
+    height: 100%;
 
 }
 
@@ -16,6 +20,8 @@
   max-width: 90%;
   margin: 0 auto;
   padding: 0;
+  height: 105%;
+  position: relative;
 
 
 }
@@ -29,11 +35,10 @@
   margin: 0 auto;
   padding: 0;
 
-  width: 90%;
+  width: 95%;
   height: 100%;
   position: relative;
-  overflow: auto;
-
+  
 
 }
 /* ../../desktop.blocks/page/page.css:end */
@@ -81,6 +86,22 @@
     padding-top: 5px;
 }
 /* ../../desktop.blocks/news/news.css:end */
+/* ../../desktop.blocks/map/map.css:begin */
+.map {
+    position: absolute;
+    padding: 5px;
+    width: 90%;
+    height: 400px;
+    }
+/* ../../desktop.blocks/map/map.css:end */
+/* ../../desktop.blocks/comment/comment.css:begin */
+.comment{
+
+	border-top: 1px solid red;
+
+	
+}
+/* ../../desktop.blocks/comment/comment.css:end */
 /* ../../libs/bem-components/design/common.blocks/page/_theme/page_theme_islands.css:begin */
 html {
   min-height: 100%;
@@ -239,7 +260,7 @@ html {
 }
 /* ../../libs/bem-components/common.blocks/input/input.css:end */
 /* ../../desktop.blocks/input/input.css:begin */
-.input
+/*.input
 {
 	position: relative;
     top: 6px;
@@ -247,7 +268,7 @@ html {
 
 .input__control
 {
-	width: 230px;
+	width: 300px;
 	border-style: solid;
 	border-top-color: red;
 	border-bottom: none;
@@ -256,7 +277,7 @@ html {
 	border-left-width: 1px; 
 	border-top-width: 1px;
 	font-family: sans-serif, Arial;
-}
+}*/
 /* ../../desktop.blocks/input/input.css:end */
 /* ../../libs/bem-components/design/common.blocks/input/_theme/input_theme_islands.css:begin */
 .input_theme_islands {
@@ -452,9 +473,9 @@ html {
 }
 /* ../../libs/bem-components/common.blocks/button/button.css:end */
 /* ../../desktop.blocks/button/button.css:begin */
-.button
+/*.button
 {
-	position: absolute;
+	position: relative;
     top: 6px;
     right: 5px;
     color: black;
@@ -469,7 +490,7 @@ html {
     border-right-color: red;
     border-right-width: 1px;
 
-}
+}*/
 /* ../../desktop.blocks/button/button.css:end */
 /* ../../libs/bem-components/design/common.blocks/button/_theme/button_theme_islands.css:begin */
 .button_theme_islands {
@@ -907,10 +928,11 @@ html {
 .footer{
   position: absolute;
   bottom: 0;
-  height: 60px;
+  height: 30px;
   width: 100%;
 
   border-top: 1px solid red;
+  margin-top: 0px;
   
 }
 /* ../../desktop.blocks/footer/footer.css:end */

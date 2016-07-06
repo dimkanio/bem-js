@@ -89,16 +89,23 @@ module.exports = {
             block: 'search',
             content: {
                 tag: 'form',
-                attrs: { action: 'http://yandex.ru/yandsearch' },
+                //attrs: { action: 'http://yandex.ru/yandsearch' },
                 content: [
                     {
                         block: 'input',
-                        name: 'text',
-                        val: 'улица, дом'
+                        mods : { theme : 'islands', size : 'm', type : 'search', 'has-clear' : true, focused : true },
+                        name: 'address-text',
+                        maxLength : 100,
+                        placeholder: 'Город, Улица, Дом'
                     },
                     {
                         block: 'button',
-                        type: 'submit',
+                        text : 'Поиск',
+                        mods : { theme : 'islands', size : 'm', type: 'submit'},
+                        icon : {
+                            block: 'image',
+                            attrs: { src: './search.png' }
+                        },
                         content: 'Поиск'
                     }
                 ]
@@ -113,7 +120,11 @@ module.exports = {
                 content: [
                  {
                     block: 'home',
-                    content: 'Тут описание дома из базы данных' 
+                    content: 'Тут описание дома из базы данных',
+                    js: {
+
+                        
+                    }
 
                  },
 

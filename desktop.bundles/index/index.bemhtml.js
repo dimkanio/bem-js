@@ -2929,6 +2929,18 @@ block('select').mod('mode', 'radio-check')(
 );
 
 /* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\select\_mode\select_mode_radio-check.bemhtml.js */
+/* begin: C:\web\homepassport.ru\desktop.blocks\footer\footer.bemhtml */
+block('footer')(
+    content()(function() {
+        return {
+            elem: 'copyrught',
+            content: applyNext()
+        };
+    })
+);
+
+
+/* end: C:\web\homepassport.ru\desktop.blocks\footer\footer.bemhtml */
 /* begin: C:\web\homepassport.ru\libs\bem-components\common.blocks\button\_togglable\button_togglable_radio.bemhtml.js */
 block('button').mod('togglable', 'radio').attrs()(function() {
     return this.extend(applyNext(), { 'aria-pressed' : String(!!this.mods.checked) });

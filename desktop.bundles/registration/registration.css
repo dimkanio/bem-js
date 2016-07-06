@@ -1,11 +1,15 @@
 /* ../../desktop.blocks/page/page.css:begin */
+html {
+   height: 115%;
+}
+
 .page
 {
     font: 13px Helvetica, Arial, sans-serif;
     background: gray;
     margin: 0 auto;
     padding: 0;
-
+    height: 100%;
 
 }
 
@@ -16,6 +20,8 @@
   max-width: 90%;
   margin: 0 auto;
   padding: 0;
+  height: 105%;
+  position: relative;
 
 
 }
@@ -29,11 +35,10 @@
   margin: 0 auto;
   padding: 0;
 
-  width: 90%;
+  width: 95%;
   height: 100%;
   position: relative;
-  overflow: auto;
-
+  
 
 }
 /* ../../desktop.blocks/page/page.css:end */
@@ -81,11 +86,28 @@
     padding-top: 5px;
 }
 /* ../../desktop.blocks/news/news.css:end */
+/* ../../desktop.blocks/map/map.css:begin */
+.map {
+    position: absolute;
+    padding: 5px;
+    width: 90%;
+    height: 400px;
+    }
+/* ../../desktop.blocks/map/map.css:end */
+/* ../../desktop.blocks/comment/comment.css:begin */
+.comment{
+
+	border-top: 1px solid red;
+
+	
+}
+/* ../../desktop.blocks/comment/comment.css:end */
 /* ../../desktop.blocks/head/head.css:begin */
 .head
 {
 	
 	border-bottom: 1px solid red;
+	height: 50px;
 	
 	
 }
@@ -142,7 +164,8 @@
 /* ../../desktop.blocks/search/search.css:begin */
 .search{
 
-	
+	padding-bottom: 10px;
+	padding-left: 24px;
 	
 }
 /* ../../desktop.blocks/search/search.css:end */
@@ -153,7 +176,7 @@
 }
 /* ../../libs/bem-components/common.blocks/input/input.css:end */
 /* ../../desktop.blocks/input/input.css:begin */
-.input
+/*.input
 {
 	position: relative;
     top: 6px;
@@ -161,7 +184,7 @@
 
 .input__control
 {
-	width: 230px;
+	width: 300px;
 	border-style: solid;
 	border-top-color: red;
 	border-bottom: none;
@@ -170,7 +193,7 @@
 	border-left-width: 1px; 
 	border-top-width: 1px;
 	font-family: sans-serif, Arial;
-}
+}*/
 /* ../../desktop.blocks/input/input.css:end */
 /* ../../libs/bem-components/common.blocks/button/button.css:begin */
 .button {
@@ -179,9 +202,9 @@
 }
 /* ../../libs/bem-components/common.blocks/button/button.css:end */
 /* ../../desktop.blocks/button/button.css:begin */
-.button
+/*.button
 {
-	position: absolute;
+	position: relative;
     top: 6px;
     right: 5px;
     color: black;
@@ -196,7 +219,7 @@
     border-right-color: red;
     border-right-width: 1px;
 
-}
+}*/
 /* ../../desktop.blocks/button/button.css:end */
 /* ../../libs/bem-components/common.blocks/menu/menu.css:begin */
 .menu {
@@ -319,19 +342,22 @@
 /* ../../desktop.blocks/info/info.css:begin */
 .info
 {
+
 	margin-top: 0;
 	margin-right: 1%;
 	margin-left: 2%;
 
 	position: relative;
     overflow: auto;
+    display: block;
+    height: 600px;
 
 }
  
 .info__left
 {
   float: left;
-  width: 60%;
+  width: 73%;
   border-right: 1px solid red;
   min-height: 600px;
 
@@ -340,9 +366,9 @@
  
 .info__right
 {
-	float: left;
-	margin-left: 2%;
-    width: 39%;
+	float: right;
+	margin-right: 2%;
+    width: 24%;
 	min-height: 300px;
 	position: relative;
 
@@ -352,17 +378,18 @@
 .footer{
   position: absolute;
   bottom: 0;
-  height: 60px;
+  height: 30px;
   width: 100%;
 
   border-top: 1px solid red;
+  margin-top: 0px;
   
 }
 /* ../../desktop.blocks/footer/footer.css:end */
 /* ../../desktop.blocks/copyright/copyright.css:begin */
 .copyright{
 	font-family: sans-serif;
-	margin-left: 10px;
+	margin-bottom: 20px;
 
 
 }

@@ -2374,6 +2374,18 @@ block('menu').elem('group')(
 );
 
 /* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\menu\__group\menu__group.bemhtml.js */
+/* begin: C:\web\homepassport.ru\desktop.blocks\footer\footer.bemhtml */
+block('footer')(
+    content()(function() {
+        return {
+            elem: 'copyrught',
+            content: applyNext()
+        };
+    })
+);
+
+
+/* end: C:\web\homepassport.ru\desktop.blocks\footer\footer.bemhtml */
 /* begin: C:\web\homepassport.ru\libs\bem-components\common.blocks\link\link.bemhtml.js */
 block('link')(
     def()(function() {

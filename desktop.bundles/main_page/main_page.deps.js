@@ -191,6 +191,46 @@ exports.deps = [
         "block": "idle"
     },
     {
+        "block": "input",
+        "mod": "theme"
+    },
+    {
+        "block": "input",
+        "mod": "theme",
+        "val": "islands"
+    },
+    {
+        "block": "input",
+        "mod": "size"
+    },
+    {
+        "block": "input",
+        "mod": "size",
+        "val": "m"
+    },
+    {
+        "block": "input",
+        "mod": "type"
+    },
+    {
+        "block": "input",
+        "mod": "type",
+        "val": "search"
+    },
+    {
+        "block": "input",
+        "mod": "has-clear"
+    },
+    {
+        "block": "input",
+        "elem": "clear"
+    },
+    {
+        "block": "input",
+        "mod": "has-clear",
+        "val": true
+    },
+    {
         "block": "button"
     },
     {
@@ -212,6 +252,33 @@ exports.deps = [
     {
         "block": "button",
         "elem": "text"
+    },
+    {
+        "block": "button",
+        "mod": "theme"
+    },
+    {
+        "block": "button",
+        "mod": "theme",
+        "val": "islands"
+    },
+    {
+        "block": "button",
+        "mod": "size"
+    },
+    {
+        "block": "button",
+        "mod": "size",
+        "val": "m"
+    },
+    {
+        "block": "button",
+        "mod": "type"
+    },
+    {
+        "block": "button",
+        "mod": "type",
+        "val": "submit"
     },
     {
         "block": "info"

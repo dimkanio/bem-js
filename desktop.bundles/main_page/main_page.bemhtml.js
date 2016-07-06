@@ -2299,6 +2299,23 @@ block('input').elem('control')(
 );
 
 /* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\input\__control\input__control.bemhtml.js */
+/* begin: C:\web\homepassport.ru\libs\bem-components\common.blocks\input\_type\input_type_search.bemhtml.js */
+block('input').mod('type', 'search').elem('control').attrs()(function() {
+    return this.extend(applyNext(), { type : 'search' });
+});
+
+/* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\input\_type\input_type_search.bemhtml.js */
+/* begin: C:\web\homepassport.ru\libs\bem-components\common.blocks\input\_has-clear\input_has-clear.bemhtml.js */
+block('input').mod('has-clear', true).elem('box')
+    .content()(function() {
+        return [this.ctx.content, { elem : 'clear' }];
+    });
+
+/* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\input\_has-clear\input_has-clear.bemhtml.js */
+/* begin: C:\web\homepassport.ru\libs\bem-components\common.blocks\input\__clear\input__clear.bemhtml.js */
+block('input').elem('clear').tag()('span');
+
+/* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\input\__clear\input__clear.bemhtml.js */
 /* begin: C:\web\homepassport.ru\libs\bem-components\common.blocks\button\button.bemhtml.js */
 block('button')(
     def()(function() {

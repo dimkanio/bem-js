@@ -71,6 +71,9 @@ exports.deps = [
         "block": "map"
     },
     {
+        "block": "comment"
+    },
+    {
         "block": "page",
         "mod": "theme"
     },
