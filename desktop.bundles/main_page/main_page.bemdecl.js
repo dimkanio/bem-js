@@ -136,7 +136,7 @@ exports.blocks = [
                 "name": "theme",
                 "vals": [
                     {
-                        "name": "islands"
+                        "name": "lands"
                     }
                 ]
             }
@@ -204,7 +204,7 @@ exports.blocks = [
                 "name": "theme",
                 "vals": [
                     {
-                        "name": "islands"
+                        "name": "lands"
                     }
                 ]
             }
@@ -237,6 +237,9 @@ exports.blocks = [
         ]
     },
     {
+        "name": "icon"
+    },
+    {
         "name": "info"
     },
     {
@@ -248,7 +251,12 @@ exports.blocks = [
         ]
     },
     {
-        "name": "home"
+        "name": "homecard",
+        "elems": [
+            {
+                "name": "text"
+            }
+        ]
     },
     {
         "name": "map-content"

@@ -3781,6 +3781,39 @@ provide({
 });
 
 /* end: ../../libs/bem-core/common.blocks/events/events.vanilla.js */
+/* begin: ../../desktop.blocks/search/search.js */
+modules.define(
+    'search', // имя блока
+    ['i-bem__dom', 'jquery'], // подключение зависимости
+
+    // функция, в которую передаются имена используемых модулей
+    function(provide, BEMDOM, $) {
+
+        provide(BEMDOM.decl(this.name, { // декларация блока
+            onSetMod: { // конструктор для описания реакции на события
+                'js': {
+                    'inited': function() {
+                        this._input = this.findBlockInside('input');
+
+                        // событие, на которое будет реакция
+                        this.bindTo('submit', function(e) {
+                            // предотвращение срабатывания события по умолчанию:
+                            // отправка формы на сервер с перезагрузкой страницы
+                            e.preventDefault();
+
+                            console.log(this._input.getVal());
+
+                            $( '.homecard__text' ).append('<li>Адрес: ' + this._input.getVal() + '</li>');
+                        });
+                    }
+
+
+
+                }
+            }
+        }));
+    });
+/* end: ../../desktop.blocks/search/search.js */
 /* begin: ../../desktop.blocks/news/news.js */
 modules.define('news',  ['i-bem__dom', 'jquery', 'BEMHTML'], 
                  function(provide, BEMDOM, $, BEMHTML) {
@@ -3871,6 +3904,35 @@ provide(BEMDOM.decl(this.name, {
 
 
 /* end: ../../desktop.blocks/news/news.js */
+/* begin: ../../desktop.blocks/homecard/homecard.js */
+modules.define('homecard', ['i-bem__dom'], function(provide, BEMDOM) {
+
+provide(BEMDOM.decl(this.name, {
+
+    onSetMod: {
+        'js' : {
+            'inited' : function() {
+                this.bindTo('click', function() {
+                    //this.setMod('nobase');
+                });
+            }
+        },
+        'inbase' : function() {
+            this.domElem.append(' 11');
+        },
+        'nobase' : function() {
+            this.domElem.append(' 22 ');
+            this.setMod('inbase');
+        }
+    }
+}));
+
+});
+
+
+
+
+/* end: ../../desktop.blocks/homecard/homecard.js */
 /* begin: ../../libs/bem-core/common.blocks/jquery/__event/_type/jquery__event_type_pointerclick.js */
 modules.define('jquery', ['next-tick'], function(provide, nextTick, $) {
 
@@ -6096,12 +6158,12 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM) {
           'js' : {
               inited: function () {
                   // Слушаем состояние карты (нужно сделать надстройки).
-                  this.findBlockOn('map', 'map')
-                      .on('map-inited', this.onMapInited, this);
+                   this.findBlockOn('map', 'map')
+                       .on('map-inited', this.onMapInited, this);
 
                   // Слушаем события меню (будем переключать метки / группы).
-                  // BEMDOM.blocks.menu
-                  //     .on(this.domElem, 'menuItemClick', this.onMenuItemClick, this)
+                   // BEMDOM.blocks.menu
+                   //     .on(this.domElem, 'menuItemClick', this.onMenuItemClick, this)
 
             }
         }

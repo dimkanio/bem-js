@@ -1,3 +1,3 @@
 ({
-    shouldDeps: ['news', 'map', 'comment']
+    shouldDeps: ['search', 'news', 'map', 'comment', 'homecard']
 })

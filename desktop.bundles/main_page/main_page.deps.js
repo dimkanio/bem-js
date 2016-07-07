@@ -65,6 +65,9 @@ exports.deps = [
         "elem": "js"
     },
     {
+        "block": "search"
+    },
+    {
         "block": "news"
     },
     {
@@ -72,6 +75,9 @@ exports.deps = [
     },
     {
         "block": "comment"
+    },
+    {
+        "block": "homecard"
     },
     {
         "block": "page",
@@ -163,9 +169,6 @@ exports.deps = [
         "val": "m"
     },
     {
-        "block": "search"
-    },
-    {
         "block": "input"
     },
     {
@@ -197,7 +200,7 @@ exports.deps = [
     {
         "block": "input",
         "mod": "theme",
-        "val": "islands"
+        "val": "lands"
     },
     {
         "block": "input",
@@ -260,7 +263,7 @@ exports.deps = [
     {
         "block": "button",
         "mod": "theme",
-        "val": "islands"
+        "val": "lands"
     },
     {
         "block": "button",
@@ -281,6 +284,9 @@ exports.deps = [
         "val": "submit"
     },
     {
+        "block": "icon"
+    },
+    {
         "block": "info"
     },
     {
@@ -288,7 +294,8 @@ exports.deps = [
         "elem": "left"
     },
     {
-        "block": "home"
+        "block": "homecard",
+        "elem": "text"
     },
     {
         "block": "map-content"

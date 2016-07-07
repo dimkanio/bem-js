@@ -2391,6 +2391,18 @@ block('button').mod('focused', true).js()(function() {
 block('button').elem('text').tag()('span');
 
 /* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\button\__text\button__text.bemhtml.js */
+/* begin: C:\web\homepassport.ru\libs\bem-components\common.blocks\icon\icon.bemhtml.js */
+block('icon')(
+    tag()('span'),
+    attrs()(function() {
+        var attrs = {},
+            url = this.ctx.url;
+        if(url) attrs.style = 'background-image:url(' + url + ')';
+        return attrs;
+    })
+);
+
+/* end: C:\web\homepassport.ru\libs\bem-components\common.blocks\icon\icon.bemhtml.js */
 /* begin: C:\web\homepassport.ru\desktop.blocks\footer\footer.bemhtml */
 block('footer')(
     content()(function() {

@@ -87,26 +87,26 @@ module.exports = {
         },
         {
             block: 'search',
+            js: true,
             content: {
                 tag: 'form',
                 //attrs: { action: 'http://yandex.ru/yandsearch' },
                 content: [
                     {
                         block: 'input',
-                        mods : { theme : 'islands', size : 'm', type : 'search', 'has-clear' : true, focused : true },
-                        name: 'address-text',
+                        mods : { theme : 'lands', size : 'm', type : 'search', 'has-clear' : true, focused : true },
+                        name: 'address',
                         maxLength : 100,
                         placeholder: 'Город, Улица, Дом'
                     },
                     {
                         block: 'button',
                         text : 'Поиск',
-                        mods : { theme : 'islands', size : 'm', type: 'submit'},
+                        mods : { theme : 'lands', size : 'm', type: 'submit'},
                         icon : {
-                            block: 'image',
-                            attrs: { src: './search.png' }
-                        },
-                        content: 'Поиск'
+                            block: 'icon',
+                            url: 'http://localhost:8080/desktop.bundles/main_page/search.png',
+                        }
                     }
                 ]
             }
@@ -119,12 +119,10 @@ module.exports = {
                 elem: 'left',
                 content: [
                  {
-                    block: 'home',
-                    content: 'Тут описание дома из базы данных',
-                    js: {
-
-                        
-                    }
+                    block: 'homecard',
+                    content: 'Тут описание дома из базы данных:\n',
+                    elem: 'text'
+                    
 
                  },
 
@@ -147,8 +145,9 @@ module.exports = {
                             'geoObjects': [
                                 //Массив геообъектов можно, но пока один
                                 {
-                                    //type: 'Point',
-                                    coords: [51.723228, 36.188892], 
+                                    // координаты метки
+                                    coords: [51.723228, 36.188892],  
+                                    // опции метки
                                     options: {
                                         //preset: 'islands#redIcon',
 
@@ -157,6 +156,7 @@ module.exports = {
                                         iconImageSize: [64, 64],
                                         iconImageOffset: [-30, -50]
                                     },
+                                    // данные метки
                                     properties: {
                                         balloonContentHeader: 'г.Курск, ул. Александра Невского, д.23'
 
@@ -172,6 +172,7 @@ module.exports = {
                         }
 
                     }
+
                     ]
 
                     

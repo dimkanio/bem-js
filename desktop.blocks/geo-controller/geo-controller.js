@@ -7,12 +7,12 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM) {
           'js' : {
               inited: function () {
                   // Слушаем состояние карты (нужно сделать надстройки).
-                  this.findBlockOn('map', 'map')
-                      .on('map-inited', this.onMapInited, this);
+                   this.findBlockOn('map', 'map')
+                       .on('map-inited', this.onMapInited, this);
 
                   // Слушаем события меню (будем переключать метки / группы).
-                  // BEMDOM.blocks.menu
-                  //     .on(this.domElem, 'menuItemClick', this.onMenuItemClick, this)
+                   // BEMDOM.blocks.menu
+                   //     .on(this.domElem, 'menuItemClick', this.onMenuItemClick, this)
 
             }
         }
