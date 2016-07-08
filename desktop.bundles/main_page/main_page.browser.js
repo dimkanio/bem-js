@@ -3801,16 +3801,18 @@ modules.define(
                             // отправка формы на сервер с перезагрузкой страницы
                             e.preventDefault();
 
-                            console.log(this._input.getVal());
+                            // Блок поделится информацией (событием) о том, что ввели что-то в поиске
+                            this.emit('search-submit', {
+                                textdata: this._input.getVal()
+                            });
 
                             $( '.homecard__text' ).append('<li>Адрес: ' + this._input.getVal() + '</li>');
                         });
-                    }
 
-
-
+                        }
                 }
             }
+
         }));
     });
 /* end: ../../desktop.blocks/search/search.js */
@@ -6149,7 +6151,7 @@ provide($);
 
 /* end: ../../libs/bem-core/common.blocks/jquery/__event/_type/jquery__event_type_pointerpressrelease.js */
 /* begin: ../../desktop.blocks/geo-controller/geo-controller.js */
-modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM) {
+modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM, GEO) {
 
   provide(BEMDOM.decl(
     this.name,
@@ -6161,10 +6163,9 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM) {
                    this.findBlockOn('map', 'map')
                        .on('map-inited', this.onMapInited, this);
 
-                  // Слушаем события меню (будем переключать метки / группы).
-                   // BEMDOM.blocks.menu
-                   //     .on(this.domElem, 'menuItemClick', this.onMenuItemClick, this)
 
+                    BEMDOM.blocks['search']
+                    .on('search-submit', this.onSubmitSearch, this);
             }
         }
     },
@@ -6179,9 +6180,11 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM) {
 
     onMapInited: function (e, data) {
         this.map = data.map;
-        // Эту группу не будем добавлять на карту,
-        // чтобы помещённые в неё геообъекты были скрыты.
-        //this._hidden = new ymaps.GeoObjectCollection();
+    },
+
+    onSubmitSearch: function (e, data) {
+        this._data = data.textdata;
+        console.log('Address:' + this._data);
     },
 
     /**

@@ -17,15 +17,17 @@ modules.define(
                             // отправка формы на сервер с перезагрузкой страницы
                             e.preventDefault();
 
-                            console.log(this._input.getVal());
+                            // Блок поделится информацией (событием) о том, что ввели что-то в поиске
+                            this.emit('search-submit', {
+                                textdata: this._input.getVal()
+                            });
 
                             $( '.homecard__text' ).append('<li>Адрес: ' + this._input.getVal() + '</li>');
                         });
-                    }
 
-
-
+                        }
                 }
             }
+
         }));
     });

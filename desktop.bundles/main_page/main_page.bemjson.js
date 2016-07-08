@@ -87,6 +87,7 @@ module.exports = {
         },
         {
             block: 'search',
+            mix: [{ block: 'geo-controller'}],
             js: true,
             content: {
                 tag: 'form',
@@ -139,7 +140,7 @@ module.exports = {
                         js: {
 
                             'lang': 'ru-RU',
-                            'center': [51.723228, 36.188892],
+                            'center': [51.723103, 36.188838],
                             'zoom': 16,
                             // Добавляем геообъект на карту.
                             'geoObjects': [

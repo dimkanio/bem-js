@@ -127,6 +127,9 @@ exports.blocks = [
         "name": "search"
     },
     {
+        "name": "geo-controller"
+    },
+    {
         "name": "input"
     },
     {
@@ -260,9 +263,6 @@ exports.blocks = [
     },
     {
         "name": "map-content"
-    },
-    {
-        "name": "geo-controller"
     },
     {
         "name": "map"

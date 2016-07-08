@@ -364,6 +364,9 @@ exports.deps = [
         "val": true
     },
     {
+        "block": "geo-controller"
+    },
+    {
         "block": "input",
         "mod": "disabled",
         "val": true
@@ -392,9 +395,6 @@ exports.deps = [
         "block": "button",
         "mod": "pressed",
         "val": true
-    },
-    {
-        "block": "geo-controller"
     },
     {
         "block": "link",
