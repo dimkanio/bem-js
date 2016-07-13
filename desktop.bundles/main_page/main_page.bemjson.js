@@ -140,31 +140,31 @@ module.exports = {
                         js: {
 
                             'lang': 'ru-RU',
-                            'center': [51.723103, 36.188838],
+                            'center': [51.728255, 36.192475],
                             'zoom': 16,
                             // Добавляем геообъект на карту.
-                            'geoObjects': [
-                                //Массив геообъектов можно, но пока один
-                                {
-                                    // координаты метки
-                                    coords: [51.723228, 36.188892],  
-                                    // опции метки
-                                    options: {
-                                        //preset: 'islands#redIcon',
+                            // 'geoObjects': [
+                            //     //Массив геообъектов можно, но пока один
+                            //     {
+                            //         // координаты метки
+                            //         coords: [51.723228, 36.188892],  
+                            //         // опции метки
+                            //         options: {
+                            //             //preset: 'islands#redIcon',
 
-                                        iconLayout: 'default#image',
-                                        iconImageHref: './Arrow.png',
-                                        iconImageSize: [64, 64],
-                                        iconImageOffset: [-30, -50]
-                                    },
-                                    // данные метки
-                                    properties: {
-                                        balloonContentHeader: 'г.Курск, ул. Александра Невского, д.23'
+                            //             iconLayout: 'default#image',
+                            //             iconImageHref: './Arrow.png',
+                            //             iconImageSize: [64, 64],
+                            //             iconImageOffset: [-30, -50]
+                            //         },
+                            //         // данные метки
+                            //         properties: {
+                            //             balloonContentHeader: 'г.Курск, ул. Александра Невского, д.23'
 
-                                    }
-                                }
+                            //         }
+                            //     }
                                 
-                            ],
+                            // ],
                             // Устанавливать ли bounds карты по области,
                             // охватывающей все геообъекты.
                             'setupBoundsByGeoObjects': true,

@@ -1,4 +1,4 @@
-modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM, GEO) {
+modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM) {
 
   provide(BEMDOM.decl(
     this.name,
@@ -13,16 +13,11 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM, GEO) 
 
                     BEMDOM.blocks['search']
                     .on('search-submit', this.onSubmitSearch, this);
+
+                    //Сохраним текущий объект
+                    _this = this;
             }
         }
-    },
-
-    onMenuItemClick: function (e, data) {
-        this.itemToggle(data.group);
-    },
-
-    onMenuGroupClick: function (e, data) {
-        this.groupToggle(data.group);
     },
 
     onMapInited: function (e, data) {
@@ -30,66 +25,27 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM, GEO) 
     },
 
     onSubmitSearch: function (e, data) {
-        this._data = data.textdata;
-        console.log('Address:' + this._data);
-    },
+        this._addrerss = data.textdata;
 
-    /**
-     * Поиск нужной группы и добавление/удаление её с карты.
-     * @param {String} id Идентификатор группы.
-     */
-    groupToggle: function (id) {
-        var it, group;
+        var myGeocoder = ymaps.geocode(this._addrerss);
+        myGeocoder.then(
+            function (res) {
+                //console.log('Координаты объекта :' + res.geoObjects.get(0).geometry.getCoordinates());
 
-        // Сначала ищем в видимой коллекции.
-        it = this.map.geoObjects.getIterator();
-        while (group = it.getNext()) {
-            if (group.properties.get('collection') && group.properties.get('id') === id) {
-                this._hidden.add(group);
-                return;
+                // Блок поделится информацией (событием) о том, что получены координаты
+                _this.emit('object-found', {
+                    geo_obj: res
+                });
+                
+            },
+            function (err) {
+                console.log('Error: geo object was not found!');
             }
-        }
+        );
 
-        // Если мы сюда попали, значит, коллекция уже скрыта.
-        it = this._hidden.getIterator();
-        while (group = it.getNext()) {
-            if (group.properties.get('id') === id) {
-                this.map.geoObjects.add(group);
-                return;
-            }
-        }
-    },
 
-    /**
-     * Поиск нужной метки и открытие/закрыте её балуна.
-     * @param {String} id Идентификатор метки.
-     */
-    itemToggle: function (id) {
-        var it = this.map.geoObjects.getIterator(),
-            group;
-
-        while(group = it.getNext()) {
-            if (group.properties.get('collection')) {
-                for (var i = 0, len = group.getLength(); i < len; i++) {
-                    var placemark = group.get(i);
-
-                    if (placemark.properties.get('id') === id) {
-                        if (placemark.balloon.isOpen()) {
-                            placemark.balloon.close();
-                        }
-                        else {
-                            this.map.panTo(placemark.geometry.getCoordinates(), {
-                                delay: 0,
-                                callback: function () {
-                                    placemark.balloon.open();
-                                }
-                            });
-                        }
-                        return;
-                    }
-                }
-            }
-        }
     }
+
+
 }));
 });

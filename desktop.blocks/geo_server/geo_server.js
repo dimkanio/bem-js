@@ -5,7 +5,7 @@ var MultiGeocoder = require('multi-geocoder'),
 function getCoords(address, func_callback) {
     geocoder.geocode([address])
 	    .then(function (data) {
-	        //console.log(data.result.features[0].geometry.coordinates);
+
 	        //Координаты передаем в колбэк
 	        func_callback(data.result.features[0].geometry.coordinates);
 	    })

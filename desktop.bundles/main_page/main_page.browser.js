@@ -5881,6 +5881,12 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
             'js': {
                 inited: function () {
                     this.loadMapsApi();
+
+                    BEMDOM.blocks['geo-controller']
+                    .on('object-found', this.onShowObject, this);
+
+
+
                 }
             }
         },
@@ -5891,6 +5897,66 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
                 'package.full'
             ]
         ],
+
+        /**
+         * Загрузчик API.
+         */
+        onShowObject: function (e, data) {
+            //Get info
+            this.geo_obj = data.geo_obj;
+            this.geo_add = this.geo_obj.geoObjects.get(0).properties.get('text');
+            this.coords = this.geo_obj.geoObjects.get(0).geometry.getCoordinates();
+
+            //Get map
+            this._map = this.getMap();
+
+            //Remove all
+            this._map.geoObjects.removeAll();
+
+            //Set center
+            //this._map.setCenter(this.coords);
+
+            this._map.panTo(this.coords, {
+                /* Опции перемещения:
+                   разрешить уменьшать и затем увеличивать зум
+                   карты при перемещении между точками 
+                */
+                flying: true
+                }
+            )
+
+            //Add to map
+            this._map.geoObjects
+
+            .add(new ymaps.Placemark(this.coords, 
+                {
+                    balloonContentHeader: this.geo_add
+                },
+                {
+                    iconLayout: 'default#image',
+                    iconImageHref: './Arrow.png',
+                    iconImageSize: [64, 64],
+                    iconImageOffset: [-30, -50]
+                }
+            ))
+
+        },
+        /**
+        *geolocation
+        **/
+        user_geolocation: function(coo_callback){
+
+            ymaps.geolocation.get({
+                // Выставляем опцию для определения положения по ip
+                provider: 'yandex',
+                // Карта автоматически отцентрируется по положению пользователя.
+                mapStateAutoApply: true
+            })
+            .then(function (result) {
+                coo_callback(result.geoObjects.get(0).geometry.getCoordinates());
+            });
+
+        },
         /**
          * Загрузчик API.
          */
@@ -5926,43 +5992,53 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
          * Инициализация карты.
          */
         initMap: function () {
-            var center = this.params.center || [51.730361, 36.192647],
+            var center = this.params.center || [51.728255, 36.192475],
                 zoom = this.params.zoom || 16;
 
             this._map = new ymaps.Map(this.domElem[0], {
                 center: center, 
                 zoom: zoom,
-                controls: ['zoomControl', 'trafficControl'],
+                controls: ['zoomControl', 'trafficControl', 'typeSelector'],
                 behaviors: ['drag', 'dblClickZoom', 'scrollZoom']
             });
 
+
+            //Пытаемся найти пользователя
+            this.user_geolocation(function(user_coo) {
+
+                //Set center
+                this._map.panTo(user_coo);
+            });
+
+
             // Если есть метки, то добавляем их на карту.
-            if (this.params.geoObjects && this.params.geoObjects.length > 0) {
+            // if (this.params.geoObjects && this.params.geoObjects.length > 0) {
 
-                this.params.geoObjects.forEach(function (item) {
+            //     this.params.geoObjects.forEach(function (item) {
 
 
-                    item.options = item.options || {};
-                    var geoObject = new ymaps.Placemark(item.coords, item.properties, item.options);
+            //         item.options = item.options || {};
+            //         var geoObject = new ymaps.Placemark(item.coords, item.properties, item.options);
 
-                    this._map.geoObjects.add(geoObject);
+            //         this._map.geoObjects.add(geoObject);
 
-                    //Установка bounds по добавленным геообъектам.
-                    if (this.params.setupBoundsByGeoObjects) {
-                        // Координаты нового центра карты
-                        this._map.panTo(item.coords, {
-                            /* Опции перемещения:
-                               разрешить уменьшать и затем увеличивать зум
-                               карты при перемещении между точками 
-                            */
-                            flying: true
-                            }
-                        )
-                        //this._map.setBounds(this._map.geoObjects.getBounds());
-                    }
+            //         //Установка bounds по добавленным геообъектам.
+            //         if (this.params.setupBoundsByGeoObjects) {
+            //             // Координаты нового центра карты
+            //             this._map.panTo(item.coords, {
+            //                 /* Опции перемещения:
+            //                    разрешить уменьшать и затем увеличивать зум
+            //                    карты при перемещении между точками 
+            //                 */
+            //                 flying: true
+            //                 }
+            //             )
+            //             //this._map.setBounds(this._map.geoObjects.getBounds());
+            //         }
 
-                }, this);
-            }
+            //     }, this);
+            // }
+
 
             // Добавляем контролы на карту.
             // this._map.controls
@@ -6151,7 +6227,7 @@ provide($);
 
 /* end: ../../libs/bem-core/common.blocks/jquery/__event/_type/jquery__event_type_pointerpressrelease.js */
 /* begin: ../../desktop.blocks/geo-controller/geo-controller.js */
-modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM, GEO) {
+modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM) {
 
   provide(BEMDOM.decl(
     this.name,
@@ -6166,16 +6242,11 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM, GEO) 
 
                     BEMDOM.blocks['search']
                     .on('search-submit', this.onSubmitSearch, this);
+
+                    //Сохраним текущий объект
+                    _this = this;
             }
         }
-    },
-
-    onMenuItemClick: function (e, data) {
-        this.itemToggle(data.group);
-    },
-
-    onMenuGroupClick: function (e, data) {
-        this.groupToggle(data.group);
     },
 
     onMapInited: function (e, data) {
@@ -6183,67 +6254,28 @@ modules.define('geo-controller', ['i-bem__dom'], function(provide, BEMDOM, GEO) 
     },
 
     onSubmitSearch: function (e, data) {
-        this._data = data.textdata;
-        console.log('Address:' + this._data);
-    },
+        this._addrerss = data.textdata;
 
-    /**
-     * Поиск нужной группы и добавление/удаление её с карты.
-     * @param {String} id Идентификатор группы.
-     */
-    groupToggle: function (id) {
-        var it, group;
+        var myGeocoder = ymaps.geocode(this._addrerss);
+        myGeocoder.then(
+            function (res) {
+                //console.log('Координаты объекта :' + res.geoObjects.get(0).geometry.getCoordinates());
 
-        // Сначала ищем в видимой коллекции.
-        it = this.map.geoObjects.getIterator();
-        while (group = it.getNext()) {
-            if (group.properties.get('collection') && group.properties.get('id') === id) {
-                this._hidden.add(group);
-                return;
+                // Блок поделится информацией (событием) о том, что получены координаты
+                _this.emit('object-found', {
+                    geo_obj: res
+                });
+                
+            },
+            function (err) {
+                console.log('Error: geo object was not found!');
             }
-        }
+        );
 
-        // Если мы сюда попали, значит, коллекция уже скрыта.
-        it = this._hidden.getIterator();
-        while (group = it.getNext()) {
-            if (group.properties.get('id') === id) {
-                this.map.geoObjects.add(group);
-                return;
-            }
-        }
-    },
 
-    /**
-     * Поиск нужной метки и открытие/закрыте её балуна.
-     * @param {String} id Идентификатор метки.
-     */
-    itemToggle: function (id) {
-        var it = this.map.geoObjects.getIterator(),
-            group;
-
-        while(group = it.getNext()) {
-            if (group.properties.get('collection')) {
-                for (var i = 0, len = group.getLength(); i < len; i++) {
-                    var placemark = group.get(i);
-
-                    if (placemark.properties.get('id') === id) {
-                        if (placemark.balloon.isOpen()) {
-                            placemark.balloon.close();
-                        }
-                        else {
-                            this.map.panTo(placemark.geometry.getCoordinates(), {
-                                delay: 0,
-                                callback: function () {
-                                    placemark.balloon.open();
-                                }
-                            });
-                        }
-                        return;
-                    }
-                }
-            }
-        }
     }
+
+
 }));
 });
 
