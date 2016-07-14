@@ -7,13 +7,11 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
 
                     BEMDOM.blocks['geo-controller']
                     .on('object-found', this.onShowObject, this);
-
-
-
+					
                 }
             }
         },
-
+		
         // Описываем модули, которые будем загружать.
         mapsPackages: [
             [
@@ -47,10 +45,9 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
                 flying: true
                 }
             )
-
+			
             //Add to map
             this._map.geoObjects
-
             .add(new ymaps.Placemark(this.coords, 
                 {
                     balloonContentHeader: this.geo_add
@@ -65,18 +62,20 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
 
         },
         /**
-        *geolocation
+        *user geolocation
         **/
-        user_geolocation: function(coo_callback){
+        user_geolocation: function(userGeoCoords){
 
             ymaps.geolocation.get({
                 // Выставляем опцию для определения положения по ip
                 provider: 'yandex',
-                // Карта автоматически отцентрируется по положению пользователя.
-                mapStateAutoApply: true
+                // Автоматически геокодируем полученный результат
+                autoReverseGeocode: true
             })
             .then(function (result) {
-                coo_callback(result.geoObjects.get(0).geometry.getCoordinates());
+                // Выведем координаты в коллбэк
+				userGeoCoords(result.geoObjects.get(0).geometry.getCoordinates());
+				
             });
 
         },
@@ -124,16 +123,19 @@ modules.define('map', ['i-bem__dom', 'loader_type_js', 'jquery'], function(provi
                 controls: ['zoomControl', 'trafficControl', 'typeSelector'],
                 behaviors: ['drag', 'dblClickZoom', 'scrollZoom']
             });
-
-
+			
+			//Наша карта
+			var yMap = this.getMap();
+			
             //Пытаемся найти пользователя
-            this.user_geolocation(function(user_coo) {
-
-                //Set center
-                this._map.panTo(user_coo);
-            });
-
-
+			this.user_geolocation(function(U_coords){
+				
+				//Карта: пользователя в центр
+				yMap.panTo(U_coords);
+				
+			});
+			
+			
             // Если есть метки, то добавляем их на карту.
             // if (this.params.geoObjects && this.params.geoObjects.length > 0) {
 

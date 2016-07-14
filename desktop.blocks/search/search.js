@@ -9,7 +9,11 @@ modules.define(
             onSetMod: { // конструктор для описания реакции на события
                 'js': {
                     'inited': function() {
+						//Сохраним this
+						_this = this;
+						
                         this._input = this.findBlockInside('input');
+						
 
                         // событие, на которое будет реакция
                         this.bindTo('submit', function(e) {
@@ -24,10 +28,21 @@ modules.define(
 
                             $( '.homecard__text' ).append('<li>Адрес: ' + this._input.getVal() + '</li>');
                         });
+						
+						//Слушаем событие, что объект найден
+						BEMDOM.blocks['geo-controller']
+							.on('object-found', this.onReplaceInputText, this)
 
                         }
                 }
-            }
+            },
+			
+			onReplaceInputText: function(e, data){
+				this.input_text = data.geo_obj.geoObjects.get(0).properties.get('text');
+				$('input').val(this.input_text);
+			
+			}
+			
 
         }));
     });
